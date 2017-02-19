@@ -42,7 +42,7 @@ pageDataToDF <- function(json){
 		link = unlistWithNA(json, 'link'),
 		id = unlistWithNA(json, 'id'),
 		story = unlistWithNA(json, 'story'),
-		share_type = unlistWithNA(json,'share_type'),
+		status_type = unlistWithNA(json,'status_type'),
 		likes_count = unlistWithNA(json, c('likes', 'summary', 'total_count')),
 		comments_count = unlistWithNA(json, c('comments', 'summary', 'total_count')),
 		shares_count = unlistWithNA(json, c('shares', 'count')),
