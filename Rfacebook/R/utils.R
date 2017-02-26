@@ -282,8 +282,9 @@ unlistWithNA <- function(lst, field){
 			notnulls <- unlist(lapply(lst, function(x) !is.null(x[[field]])))
 			vect <- rep(NA, length(lst))
 			vect[notnulls] <- unlist(lapply(lst, function(x) x[[field]]))
-		}
-			vect <- rep(NA, length(lst))				
+		}else{
+			vect <- rep(NA, length(lst))
+		     }
 	}
 	if (length(field)==2){
 		notnulls <- unlist(lapply(lst, function(x) !is.null(x[[field[1]]][[field[2]]])))
