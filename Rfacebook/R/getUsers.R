@@ -78,7 +78,7 @@ getUsers <- function(users, token, private_info=FALSE)
 		query <- paste('https://graph.facebook.com/',
 			ifelse(tkversion=='v2', 'v2.0/', ''), '?ids=', 
 			paste(names(actual.users), collapse=","),
-			"&fields=id,name,first_name,middle_name,last_name,gender,locale,likes,fan_count,talking_about_count,about,description,contact_address,",
+			"&fields=id,name,first_name,middle_name,last_name,gender,locale,general_info,products,name,fan_count,talking_about_count,about,description,contact_address,company_overview,",
 			"picture.type(large)", sep="")
 		}		
 		## making query
