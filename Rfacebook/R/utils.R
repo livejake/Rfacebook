@@ -191,6 +191,14 @@ userDataToDF <- function(user_data, private_info){
 		locale = unlistWithNA(user_data, 'locale'),
 		category = unlistWithNA(user_data, 'category'),
 		likes = unlistWithNA(user_data, 'likes'),
+		general_info = unlistWithNA(user_data, 'general_info'),
+		products = unlistWithNA(user_data, 'products'),
+		fan_count = unlistWithNA(user_data, 'fan_count'),
+		talking_about_count = unlistWithNA(user_data, 'talking_about_count'),
+		about = unlistWithNA(user_data, 'about'),
+		description = unlistWithNA(description, 'description'),
+		contact_address = unlistWithNA(contact_address, 'contact_address'),
+		company_overview = unlistWithNA(company_overview, 'company_overview'),
 		picture = unlistWithNA(user_data, c('picture', 'data', 'url')),
 		stringsAsFactors=F)
 	if (private_info==TRUE){
