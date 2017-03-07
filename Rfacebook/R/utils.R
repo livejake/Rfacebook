@@ -196,9 +196,9 @@ userDataToDF <- function(user_data, private_info){
 		fan_count = unlistWithNA(user_data, 'fan_count'),
 		talking_about_count = unlistWithNA(user_data, 'talking_about_count'),
 		about = unlistWithNA(user_data, 'about'),
-		description = unlistWithNA(description, 'description'),
-		contact_address = unlistWithNA(contact_address, 'contact_address'),
-		company_overview = unlistWithNA(company_overview, 'company_overview'),
+		description = unlistWithNA(user_data, 'description'),
+		contact_address = unlistWithNA(user_data, 'contact_address'),
+		company_overview = unlistWithNA(user_data, 'company_overview'),
 		picture = unlistWithNA(user_data, c('picture', 'data', 'url')),
 		stringsAsFactors=F)
 	if (private_info==TRUE){
@@ -278,13 +278,9 @@ replyDataToDF <- function(json){
 
 unlistWithNA <- function(lst, field){
 	if (length(field)==1){
-		if(exists(lst[1][[field]])){
 			notnulls <- unlist(lapply(lst, function(x) !is.null(x[[field]])))
 			vect <- rep(NA, length(lst))
 			vect[notnulls] <- unlist(lapply(lst, function(x) x[[field]]))
-		}else{
-			vect <- rep(NA, length(lst))
-		     }
 	}
 	if (length(field)==2){
 		notnulls <- unlist(lapply(lst, function(x) !is.null(x[[field[1]]][[field[2]]])))

@@ -78,7 +78,7 @@ getUsers <- function(users, token, private_info=FALSE)
 		query <- paste('https://graph.facebook.com/',
 			ifelse(tkversion=='v2', 'v2.0/', ''), '?ids=', 
 			paste(names(actual.users), collapse=","),
-			"&fields=id,name,first_name,middle_name,last_name,gender,locale,general_info,products,name,fan_count,talking_about_count,about,description,contact_address,company_overview,",
+			"&fields=id,name,first_name,middle_name,last_name,gender,locale,",
 			"picture.type(large)", sep="")
 		}		
 		## making query
@@ -91,9 +91,9 @@ getUsers <- function(users, token, private_info=FALSE)
 	if (length(pages)>0){
 		## getting data for pages
 		query <- paste('https://graph.facebook.com/',
-			ifelse(tkversion=='v2', 'v2.0/', ''), '?ids=', 
+			ifelse(tkversion=='v2', 'v2.6/', ''), '?ids=', 
 			paste(names(pages), collapse=","), 
-			"&fields=id,name,category,likes,picture.type(large)", sep="")
+			"&fields=id,name,category,picture.type(large),general_info,products,fan_count,talking_about_count,about,description,contact_address,company_overview", sep="")
 		## making query
 		content <- callAPI(query, token)
 		df.pages <- userDataToDF(content, private_info=private_info)	
@@ -135,7 +135,7 @@ getUsers <- function(users, token, private_info=FALSE)
 				query <- paste('https://graph.facebook.com/', 
 					ifelse(tkversion=='v2', 'v2.0/', ''), '?ids=', 
 					paste(names(actual.users), collapse=","),
-					"&fields=id,name,first_name,middle_name,last_name,gender,locale,general_info,products,name,fan_count,talking_about_count,about,description,contact_address,company_overview,",
+					"&fields=id,name,first_name,middle_name,last_name,gender,locale,",
 					"picture.type(large)", sep="")
 				}		
 				## making query
@@ -148,9 +148,9 @@ getUsers <- function(users, token, private_info=FALSE)
 			if (length(pages)>0){
 				## getting data for pages
 				query <- paste('https://graph.facebook.com/', 
-					ifelse(tkversion=='v2', 'v2.0/', ''), '?ids=', 
+					ifelse(tkversion=='v2', 'v2.6/', ''), '?ids=', 
 					paste(names(pages), collapse=","), 
-					"&fields=id,name,category,likes,picture.type(large)", sep="")
+					"&fields=id,name,category,picture.type(large),general_info,products,fan_count,talking_about_count,about,description,contact_address,company_overview", sep="")
 				## making query
 				content <- callAPI(query, token)
 				df.pages <- userDataToDF(content, private_info=private_info)	
